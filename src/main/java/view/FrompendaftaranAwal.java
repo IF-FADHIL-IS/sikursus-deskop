@@ -257,7 +257,8 @@ try {
     String level = cmblevel.getSelectedItem().toString();
 
     double biaya = Double.parseDouble(txtBiaya.getText());
-    int jumlah = Integer.parseInt(txtJumlah.getText());
+    int jumlah;
+    jumlah = Integer.parseInt(txtJumlah.getText());
 
     kursus kursus;
     kursus = new kursus(kode, nama, level, biaya);
@@ -283,8 +284,7 @@ try {
         "Input Salah",
         javax.swing.JOptionPane.ERROR_MESSAGE
     );
-}
-}        // TODO add your handling code here:
+}       // TODO add your handling code here:
     }//GEN-LAST:event_btnProsesActionPerformed
 
     private void cmblevelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmblevelActionPerformed

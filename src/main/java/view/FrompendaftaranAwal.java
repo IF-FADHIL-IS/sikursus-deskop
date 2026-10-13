@@ -5,6 +5,7 @@
  */
 package view;
 
+import model.kursus;
 /**
  *
  * @author USER
@@ -43,6 +44,8 @@ public class FrompendaftaranAwal extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtHasil = new javax.swing.JTextArea();
+        levl = new javax.swing.JLabel();
+        cmblevel = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("FRomPendaftaranKusus");
@@ -121,50 +124,65 @@ public class FrompendaftaranAwal extends javax.swing.JFrame {
             .addGroup(pnlHasilLayout.createSequentialGroup()
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
                 .addContainerGap())
         );
+
+        levl.setText("LEVEL");
+
+        cmblevel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "BASIC", "INTERMEDIATED", "ADVANCED", " " }));
+        cmblevel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmblevelActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlUtamaLayout = new javax.swing.GroupLayout(pnlUtama);
         pnlUtama.setLayout(pnlUtamaLayout);
         pnlUtamaLayout.setHorizontalGroup(
             pnlUtamaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlUtamaLayout.createSequentialGroup()
+            .addGroup(pnlUtamaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnlUtamaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Nama, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlUtamaLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(pnlUtamaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlUtamaLayout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtJumlah, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(pnlUtamaLayout.createSequentialGroup()
-                                .addGap(23, 23, 23)
-                                .addComponent(btnProses)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnReset)
-                                .addGap(29, 29, 29))
-                            .addGroup(pnlUtamaLayout.createSequentialGroup()
-                                .addGroup(pnlUtamaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel2))
-                                .addGap(18, 18, 18)
+                .addGroup(pnlUtamaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlUtamaLayout.createSequentialGroup()
+                        .addGroup(pnlUtamaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(Nama, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlUtamaLayout.createSequentialGroup()
+                                .addGap(10, 10, 10)
                                 .addGroup(pnlUtamaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(pnlUtamaLayout.createSequentialGroup()
-                                        .addGroup(pnlUtamaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(cmbKursus, 0, 130, Short.MAX_VALUE)
-                                            .addComponent(txtBiaya))
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(txtNama))))))
-                .addGap(19, 19, 19))
+                                        .addGroup(pnlUtamaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel1)
+                                            .addComponent(jLabel3)
+                                            .addComponent(jLabel2))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(pnlUtamaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(pnlUtamaLayout.createSequentialGroup()
+                                                .addGroup(pnlUtamaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                    .addComponent(cmbKursus, 0, 130, Short.MAX_VALUE)
+                                                    .addComponent(txtBiaya))
+                                                .addGap(0, 0, Short.MAX_VALUE))
+                                            .addComponent(txtNama)))
+                                    .addGroup(pnlUtamaLayout.createSequentialGroup()
+                                        .addGroup(pnlUtamaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel4)
+                                            .addComponent(levl))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(pnlUtamaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(cmblevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtJumlah, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(0, 0, Short.MAX_VALUE)))))
+                        .addGap(19, 19, 19))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlUtamaLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(pnlHasil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlUtamaLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(pnlHasil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(38, 38, 38)
+                .addComponent(btnProses)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnReset)
+                .addGap(51, 51, 51))
         );
         pnlUtamaLayout.setVerticalGroup(
             pnlUtamaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -186,12 +204,16 @@ public class FrompendaftaranAwal extends javax.swing.JFrame {
                 .addGroup(pnlUtamaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(txtJumlah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnlUtamaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(levl)
+                    .addComponent(cmblevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(pnlUtamaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnProses)
                     .addComponent(btnReset))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnlHasil, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(pnlHasil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         Nama.getAccessibleContext().setAccessibleDescription("");
@@ -204,10 +226,7 @@ public class FrompendaftaranAwal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(pnlUtama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addComponent(pnlUtama, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -232,22 +251,29 @@ public class FrompendaftaranAwal extends javax.swing.JFrame {
 
     private void btnProsesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProsesActionPerformed
 try {
+    
     String nama = txtNama.getText();
-    String kursus = cmbKursus.getSelectedItem().toString();
+    String kode = cmbKursus.getSelectedItem().toString();
+    String level = cmblevel.getSelectedItem().toString();
 
     double biaya = Double.parseDouble(txtBiaya.getText());
     int jumlah = Integer.parseInt(txtJumlah.getText());
 
-    double total = hitungTotal(biaya, jumlah);
+    kursus kursus;
+    kursus = new kursus(kode, nama, level, biaya);
+
+    double diskon = kursus.hitungDiskon();
+    double total = (biaya - diskon) * jumlah;
 
     txtHasil.setText(
         "HASIL PENDAFTARAN\n" +
-        "============================\n" +
-        "Nama       : " + nama + "\n" +
-        "Kursus     : " + kursus + "\n" +
-        "Biaya      : Rp " + biaya + "\n" +
-        "Jumlah     : " + jumlah + "\n" +
-        "Total      : Rp " + total
+        "Nama   : " + kursus.getNama() + "\n" +
+        "Kursus : " + kursus.getKode() + "\n" +
+        "Level  : " + kursus.getLevel() + "\n" +
+        "Biaya  : Rp " + biaya + "\n" +
+        "Jumlah : " + jumlah + "\n" +
+        "Diskon : Rp " + diskon + "\n" +
+        "Total  : Rp " + total
     );
 
 } catch (NumberFormatException e) {
@@ -257,11 +283,14 @@ try {
         "Input Salah",
         javax.swing.JOptionPane.ERROR_MESSAGE
     );
+}
 }        // TODO add your handling code here:
     }//GEN-LAST:event_btnProsesActionPerformed
-private double hitungTotal(double biaya, int jumlah) {
-    return biaya * jumlah;
-}
+
+    private void cmblevelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmblevelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmblevelActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -290,10 +319,8 @@ private double hitungTotal(double biaya, int jumlah) {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FrompendaftaranAwal().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new FrompendaftaranAwal().setVisible(true);
         });
     }
 
@@ -302,12 +329,14 @@ private double hitungTotal(double biaya, int jumlah) {
     private javax.swing.JButton btnProses;
     private javax.swing.JButton btnReset;
     private javax.swing.JComboBox<String> cmbKursus;
+    private javax.swing.JComboBox<String> cmblevel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel levl;
     private javax.swing.JPanel pnlHasil;
     private javax.swing.JPanel pnlUtama;
     private javax.swing.JTextField txtBiaya;
